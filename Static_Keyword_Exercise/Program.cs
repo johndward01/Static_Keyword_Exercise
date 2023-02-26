@@ -27,10 +27,45 @@ namespace Static_Keyword_Exercise
         static void Main(string[] args)
         {
             // TODO: Set the values for the Fields and Properties of the Instance Class Example and the Static Class Example
+            var instance = new InstanceClassExample();
+            instance.age = 10;
+            instance.Name = "Instance Example";
+
+            StaticClassExample.age = 20;
+            StaticClassExample.Name = "Static Example";
+
             // TODO: Call BOTH of the PrintInfo() methods
+            instance.PrintInfo();
+            StaticClassExample.PrintInfo();
 
             // TODO: Instanciate 4 Players and assign values to the properties
+            var scout = new Player()
+            {
+                Health = 500,
+                Stamina = 100,
+                Mana = 250,
+            };
+            var tank = new Player()
+            {
+                Health = 2000,
+                Stamina = 750,
+                Mana = 0
+            };
+            var mage = new Player()
+            {
+                Health = 300,
+                Stamina = 500,
+                Mana = 4000
+            };
+            var noob = new Player()
+            {
+                Health = 200,
+                Stamina = 200,
+                Mana = 200,
+            };
+
             // TODO: Print the total player count using the playerCount field in the PlayerManager class
+            Console.WriteLine($"The Total Player Count is: {PlayerManager.playerCount}");
         }
     }
 
@@ -42,20 +77,22 @@ namespace Static_Keyword_Exercise
 
         public Player()
         {
-            // TODO:
+            // TODO: increment the playerCount field in the PlayerManager Class
+            PlayerManager.playerCount++;
         }
 
         public Player(float health, float stamina, float mana)
         {
-            // TODO:
+            // TODO: increment the playerCount field in the PlayerManager Class
+            PlayerManager.playerCount++;
             Health = health;
             Stamina = stamina;
             Mana = mana;
         }
     }
 
-    public class PlayerManager
+    public static class PlayerManager
     {
-        public int playerCount; 
+        public static int playerCount; 
     }
 }
